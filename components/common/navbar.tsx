@@ -6,11 +6,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Navbar = async () => {
   const session = await auth();
-
+  console.log(session);
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
-        <Link href="/">
+        <Link href="/public">
           <Image src="/logo.png" alt="logo" width={144} height={30} />
         </Link>
 
@@ -21,11 +21,9 @@ export const Navbar = async () => {
                 <span className="max-sm:hidden">Create</span>
                 <BadgePlus className="size-6 sm:hidden" />
               </Link>
-
               <form
                 action={async () => {
                   "use server";
-
                   await signOut({ redirectTo: "/" });
                 }}
               >
@@ -34,8 +32,7 @@ export const Navbar = async () => {
                   <LogOut className="size-6 sm:hidden text-red-500" />
                 </button>
               </form>
-
-              <Link href={`/user/${session?.user.id}`}>
+              <Link href={`/user/${session?.user.name}`}>
                 <Avatar className="size-10">
                   <AvatarImage
                     src={session?.user?.image || ""}

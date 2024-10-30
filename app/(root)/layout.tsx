@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navbar } from '@/app/components';
+import React from "react";
+import { Navbar } from "@/components/common/navbar";
 
 export default function RootLayout({
   children,
@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='font-work-sans'>
+    <div className="font-work-sans">
       <Navbar />
       {children}
     </div>
