@@ -13,10 +13,12 @@ export default async function Home({
       views: 55,
       author: {
         _id: 1,
+        name: "elina",
+        image: "https://via.placeholder.com/150",
       },
       _id: 1,
       description: "This is a description",
-      image: "https://images.unsplash.com/photo-150x150",
+      image: "https://via.placeholder.com/150",
       category: "Robots",
       title: "We Robots",
     },
@@ -28,7 +30,6 @@ export default async function Home({
           Pitch Your Startup, <br />
           Connect With Entrepreneurs
         </h1>
-
         <p className="sub-heading !max-w-3xl">
           Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
           Competitions.
@@ -39,7 +40,7 @@ export default async function Home({
         <p className="text-30-semibold">
           {query ? `Search Result For "${query}"` : "All Startup"}
         </p>
-        <ul>
+        <ul className="grid grid-cols-1 md:grid-cols-3 mt-8">
           {posts.length > 0 ? (
             posts.map((post) => <StartupCard key={post._id} {...post} />)
           ) : (
