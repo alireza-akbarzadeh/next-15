@@ -6,14 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Navbar = async () => {
   const session = await auth();
-  console.log(session);
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
         <Link href="/public">
           <Image src="/logo.png" alt="logo" width={144} height={30} />
         </Link>
-
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
             <>
@@ -21,6 +19,7 @@ export const Navbar = async () => {
                 <span className="max-sm:hidden">Create</span>
                 <BadgePlus className="size-6 sm:hidden" />
               </Link>
+              <Link href={`/studio`}>Studio</Link>
               <form
                 action={async () => {
                   "use server";
@@ -46,7 +45,6 @@ export const Navbar = async () => {
             <form
               action={async () => {
                 "use server";
-
                 await signIn("github");
               }}
             >
