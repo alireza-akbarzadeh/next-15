@@ -17,7 +17,6 @@ export default async function Home({
     query: STARTUPS_QUERY,
     params,
   });
-
   return (
     <>
       <section className="pink_container">
